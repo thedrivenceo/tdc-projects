@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real Talk: The Truth About Building A Sustainable Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--carbon:#1A1A1C;--orange:#F94F21;--blush:#F9F4F2;--linen:#EFD7D5;--platinum:#D7E1E2;--wisteria:#6E79BA;--vanilla:#F4EF98;--white:#FFFFFF;--mid:#6B6560}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:var(--blush);color:var(--carbon);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+.marquee-bar{background:var(--carbon);padding:10px 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-block;animation:marquee 28s linear infinite}
+.marquee-track span{font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(249,244,242,.4);padding:0 28px}
+.marquee-track span em{color:var(--orange);font-style:normal}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+nav{background:var(--carbon);padding:20px 48px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--blush)}
+.nav-badge{font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);border:1px solid rgba(249,79,33,.4);padding:6px 16px;border-radius:100px}
+
+.hero{background:var(--carbon);padding:72px 64px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(249,79,33,.06) 0%,transparent 70%);top:-200px;right:-100px;pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:340px 1fr;gap:72px;align-items:center}
+.hero-phone{display:flex;justify-content:center;align-items:center;opacity:0;animation:fadeUp .8s ease forwards .1s}
+.phone-wrap{position:relative;width:220px}
+.phone-shadow{position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);width:160px;height:30px;background:rgba(0,0,0,.4);border-radius:50%;filter:blur(16px)}
+.phone-body{width:220px;height:440px;background:#111;border-radius:40px;border:2px solid rgba(255,255,255,.12);position:relative;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.08)}
+.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:90px;height:28px;background:#111;border-radius:0 0 18px 18px;z-index:10}
+.phone-screen{position:absolute;inset:0;background:var(--carbon);display:flex;flex-direction:column}
+.phone-status{height:44px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 20px 6px;flex-shrink:0}
+.phone-time{font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;color:rgba(249,244,242,.7)}
+.phone-icons{display:flex;gap:4px;align-items:center}
+.phone-icons span{width:14px;height:7px;background:rgba(249,244,242,.5);border-radius:2px}
+.podcast-app{flex:1;display:flex;flex-direction:column;padding:16px 16px 20px;overflow:hidden}
+.app-header{font-family:'Outfit',sans-serif;font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(249,244,242,.35);margin-bottom:12px}
+.cover-art{width:100%;aspect-ratio:1;border-radius:14px;background:linear-gradient(135deg,var(--carbon) 0%,#2a2a2e 100%);border:1px solid rgba(249,244,242,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;margin-bottom:14px;position:relative;overflow:hidden}
+.cover-art::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top left,rgba(249,79,33,.15) 0%,transparent 60%)}
+.cover-label{font-family:'Outfit',sans-serif;font-size:7px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;position:relative;z-index:1}
+.cover-title{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;color:var(--blush);text-align:center;line-height:1.3;position:relative;z-index:1}
+.cover-title em{color:var(--orange);font-style:normal;display:block}
+.cover-tag{position:relative;z-index:1;margin-top:10px;font-family:'Outfit',sans-serif;font-size:7px;color:rgba(249,244,242,.35);text-align:center;line-height:1.4}
+.cover-badge{position:absolute;bottom:10px;right:10px;background:var(--orange);border-radius:4px;padding:3px 7px;font-family:'Outfit',sans-serif;font-size:7px;font-weight:700;color:white;text-transform:uppercase;letter-spacing:.08em;z-index:2}
+.ep-list{display:flex;flex-direction:column;gap:8px}
+.ep-item{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px;background:rgba(249,244,242,.04);border:1px solid rgba(249,244,242,.05)}
+.ep-num{font-family:'Outfit',sans-serif;font-size:8px;font-weight:700;color:var(--orange);width:16px;flex-shrink:0}
+.ep-text{font-family:'Outfit',sans-serif;font-size:8px;color:rgba(249,244,242,.55);line-height:1.3;flex:1}
+.ep-play{width:18px;height:18px;border-radius:50%;background:rgba(249,79,33,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ep-play::after{content:'';width:0;height:0;border-style:solid;border-width:4px 0 4px 7px;border-color:transparent transparent transparent var(--orange);margin-left:1px}
+.hero-content{opacity:0;animation:fadeUp .8s ease forwards .3s}
+.hero-overline{font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
+.hero-title{font-family:'Outfit',sans-serif;font-size:clamp(30px,4vw,58px);font-weight:600;color:var(--blush);line-height:1.1;margin-bottom:14px}
+.hero-title span{color:var(--orange)}
+.hero-tagline{font-family:'Outfit',sans-serif;font-size:clamp(13px,1.5vw,16px);font-weight:300;color:rgba(249,244,242,.45);letter-spacing:.04em;margin-bottom:40px;line-height:1.6}
+.hero-ctas{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.btn-orange{display:inline-block;background:var(--orange);color:var(--white);font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:18px 52px;border-radius:100px;border:none;cursor:pointer;text-decoration:none;transition:opacity .2s,transform .15s}
+.btn-orange:hover{opacity:.88;transform:translateY(-2px)}
+.hero-note{font-size:12px;color:rgba(249,244,242,.28);letter-spacing:.05em}
+
+.strip{background:var(--orange);padding:13px 48px;text-align:center}
+.strip p{font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--white)}
+
+.honest{background:var(--blush);padding:100px 48px;max-width:680px;margin:0 auto;text-align:center}
+.honest p{font-family:'Open Sans',sans-serif;font-size:clamp(17px,2.3vw,23px);font-weight:300;line-height:1.65;color:var(--carbon);margin-bottom:20px}
+.honest p strong{font-weight:600;color:var(--orange)}
+
+.inside{background:var(--carbon);padding:100px 48px}
+.inside-inner{max-width:960px;margin:0 auto}
+.section-label{font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
+.inside h2{font-family:'Outfit',sans-serif;font-size:clamp(26px,4vw,46px);font-weight:600;color:var(--blush);line-height:1.2;margin-bottom:56px;max-width:580px}
+.inside-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.inside-item{background:rgba(249,244,242,.03);border:1px solid rgba(249,244,242,.07);padding:40px 36px;transition:background .25s}
+.inside-item:hover{background:rgba(249,79,33,.06)}
+.inside-num{font-family:'Outfit',sans-serif;font-size:52px;font-weight:600;color:rgba(249,244,242,.05);line-height:1;margin-bottom:16px}
+.inside-item h3{font-family:'Outfit',sans-serif;font-size:16px;font-weight:600;color:var(--blush);margin-bottom:8px}
+.inside-item p{font-size:14px;color:rgba(249,244,242,.52);line-height:1.65}
+
+.for-you{background:var(--linen);padding:100px 48px}
+.for-you-inner{max-width:860px;margin:0 auto}
+.for-you h2{font-family:'Outfit',sans-serif;font-size:clamp(26px,3.5vw,42px);font-weight:600;color:var(--carbon);margin-bottom:48px;line-height:1.2}
+.for-you-list{display:flex;flex-direction:column}
+.for-you-item{display:flex;align-items:flex-start;gap:20px;padding:24px 0;border-bottom:1px solid rgba(26,26,28,.1)}
+.for-you-item:first-child{border-top:1px solid rgba(26,26,28,.1)}
+.dash{color:var(--orange);font-size:22px;line-height:1.5;flex-shrink:0;font-family:'Outfit',sans-serif;font-weight:600}
+.for-you-item p{font-size:17px;color:var(--carbon);line-height:1.6}
+.not-for-you{margin-top:56px;padding:32px 40px;border-left:4px solid var(--wisteria);background:rgba(110,121,186,.07)}
+.not-for-you p{font-size:16px;font-style:italic;color:var(--mid);line-height:1.65}
+
+.rose-section{background:var(--blush);padding:100px 48px}
+.rose-inner{max-width:860px;margin:0 auto;display:grid;grid-template-columns:180px 1fr;gap:64px;align-items:start}
+.rose-aside{border-top:3px solid var(--orange);padding-top:20px}
+.rose-name{font-family:'Outfit',sans-serif;font-size:24px;font-weight:600;color:var(--carbon);line-height:1.2;margin-bottom:6px}
+.rose-role{font-size:12px;font-family:'Outfit',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mid)}
+.rose-body h3{font-family:'Outfit',sans-serif;font-size:clamp(22px,3vw,34px);font-weight:600;color:var(--carbon);line-height:1.25;margin-bottom:24px}
+.rose-body p{font-size:16px;color:var(--mid);line-height:1.75;margin-bottom:16px}
+.rose-body p strong{color:var(--carbon);font-weight:600}
+
+.optin-section{background:var(--carbon);padding:100px 48px;text-align:center}
+.optin-inner{max-width:560px;margin:0 auto}
+.optin-section h2{font-family:'Outfit',sans-serif;font-size:clamp(28px,4.5vw,52px);font-weight:600;color:var(--blush);line-height:1.15;margin-bottom:16px}
+.optin-section h2 span{color:var(--orange)}
+.optin-sub{font-size:16px;color:rgba(249,244,242,.52);margin-bottom:48px;line-height:1.6}
+.optin-form{display:flex;flex-direction:column;gap:14px;max-width:440px;margin:0 auto}
+.optin-form input{font-family:'Open Sans',sans-serif;font-size:15px;padding:16px 24px;border:1px solid rgba(249,244,242,.14);background:rgba(249,244,242,.05);color:var(--blush);border-radius:100px;outline:none;transition:border-color .2s}
+.optin-form input::placeholder{color:rgba(249,244,242,.28)}
+.optin-form input:focus{border-color:rgba(249,79,33,.5)}
+.optin-fine{margin-top:14px;font-size:12px;color:rgba(249,244,242,.22)}
+
+footer{background:var(--carbon);border-top:1px solid rgba(249,244,242,.06);padding:32px 48px;display:flex;justify-content:space-between;align-items:center}
+.f-logo{font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:.1em;color:rgba(249,244,242,.2)}
+.f-links{display:flex;gap:24px}
+.f-links a{font-size:12px;color:rgba(249,244,242,.2);text-decoration:none;transition:color .2s}
+.f-links a:hover{color:rgba(249,244,242,.5)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:768px){nav,.honest,.inside,.for-you,.rose-section,.optin-section,footer{padding-left:24px;padding-right:24px}.hero{padding:48px 24px}.hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}.hero-ctas{align-items:center}.phone-wrap{width:180px}.phone-body{width:180px;height:360px}.inside-grid{grid-template-columns:1fr}.rose-inner{grid-template-columns:1fr;gap:32px}footer{flex-direction:column;gap:16px}}
+</style>
+</head>
+<body>
+
+<div class="marquee-bar"><div class="marquee-track">
+  <span>Free Private Podcast</span><span><em>·</em></span><span>10 Episodes</span><span><em>·</em></span><span>No Fluff</span><span><em>·</em></span><span>No Hype</span><span><em>·</em></span><span>Just The Truth</span><span><em>·</em></span>
+  <span>Free Private Podcast</span><span><em>·</em></span><span>10 Episodes</span><span><em>·</em></span><span>No Fluff</span><span><em>·</em></span><span>No Hype</span><span><em>·</em></span><span>Just The Truth</span><span><em>·</em></span>
+  <span>Free Private Podcast</span><span><em>·</em></span><span>10 Episodes</span><span><em>·</em></span><span>No Fluff</span><span><em>·</em></span><span>No Hype</span><span><em>·</em></span><span>Just The Truth</span><span><em>·</em></span>
+</div></div>
+
+<nav>
+  <span class="nav-logo">The Driven CEO</span>
+  <span class="nav-badge">Free Private Podcast</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <!-- iPhone Mockup -->
+    <div class="hero-phone">
+      <div class="phone-wrap">
+        <div class="phone-shadow"></div>
+        <div class="phone-body">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-status">
+              <span class="phone-time">9:41</span>
+              <div class="phone-icons"><span></span><span style="width:10px"></span><span style="width:8px"></span></div>
+            </div>
+            <div class="podcast-app">
+              <div class="app-header">Private Podcast</div>
+              <div class="cover-art">
+                <span class="cover-label">The Driven CEO</span>
+                <div class="cover-title">Real Talk<em>Sustainable Business</em></div>
+                <div class="cover-tag">For Coaches, Consultants<br>& Course Creators</div>
+                <div class="cover-badge">FREE</div>
+              </div>
+              <div class="ep-list">
+                <div class="ep-item"><span class="ep-num">01</span><span class="ep-text">Who This Podcast Is For</span><div class="ep-play"></div></div>
+                <div class="ep-item"><span class="ep-num">02</span><span class="ep-text">Why Strategy Isn't Working</span><div class="ep-play"></div></div>
+                <div class="ep-item"><span class="ep-num">03</span><span class="ep-text">Doer vs Spectator</span><div class="ep-play"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hero Copy -->
+    <div class="hero-content">
+      <p class="hero-overline">Free Private Podcast Series · 10 Episodes</p>
+      <h1 class="hero-title">Real Talk: The Truth About Building A <span>Sustainable Business</span></h1>
+      <p class="hero-tagline">For the Course Creators, Consultants & Coaches<br>Tired of The Burnout Cycle</p>
+      <div class="hero-ctas">
+        <a href="#optin" class="btn-orange">Send Me the Podcast →</a>
+        <span class="hero-note">Free. Private. Immediate access.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><p>10 Episodes · No Guests · No Sponsors · No Fluff · Just Honest Conversations</p></div>
+
+<div class="honest reveal">
+  <p>You're not lazy. You're not untalented.<br>You're not missing the right strategy.</p>
+  <p>You're missing the operational backbone<br>that makes <strong>everything else work.</strong></p>
+  <p>The content is there. The offer is there. The clients are there. But somewhere between the idea and the income, things keep breaking down.</p>
+  <p>That's not a you problem. <strong>That's a backend problem.</strong></p>
+</div>
+
+<div class="inside">
+  <div class="inside-inner">
+    <p class="section-label reveal">What You'll Hear</p>
+    <h2 class="reveal">10 honest episodes on the part of your business nobody talks about.</h2>
+    <div class="inside-grid">
+      <div class="inside-item reveal">
+        <div class="inside-num">01</div>
+        <h3>The Real Ceiling</h3>
+        <p>Why you keep hitting the same revenue ceiling — and why it has nothing to do with your offer, your niche, or your mindset.</p>
+      </div>
+      <div class="inside-item reveal">
+        <div class="inside-num">02</div>
+        <h3>The Real Cost</h3>
+        <p>What winging it is actually costing you — in revenue, in reputation, and in the mental load you carry every single day.</p>
+      </div>
+      <div class="inside-item reveal">
+        <div class="inside-num">03</div>
+        <h3>Why It Didn't Stick</h3>
+        <p>Why every system you've tried has fallen apart — and what actually makes operational change stick this time.</p>
+      </div>
+      <div class="inside-item reveal">
+        <div class="inside-num">04</div>
+        <h3>The Other Side</h3>
+        <p>What your business actually looks like when the backend works — and the real client results that prove it's possible.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="for-you">
+  <div class="for-you-inner">
+    <h2 class="reveal">This is for you if...</h2>
+    <div class="for-you-list">
+      <div class="for-you-item reveal"><span class="dash">—</span><p>You're generating revenue but nothing feels stable or repeatable</p></div>
+      <div class="for-you-item reveal"><span class="dash">—</span><p>You're the bottleneck in your own business and you know it</p></div>
+      <div class="for-you-item reveal"><span class="dash">—</span><p>You've tried to get organised before and it never sticks</p></div>
+      <div class="for-you-item reveal"><span class="dash">—</span><p>You keep buying strategy when deep down you know that's not the problem</p></div>
+      <div class="for-you-item reveal"><span class="dash">—</span><p>You're ready to stop waiting until you're "bigger" to build the foundation</p></div>
+    </div>
+    <div class="not-for-you reveal">
+      <p>Skip this if you're just getting started, looking for a quick fix, or want someone to tell you that one more funnel will sort it. This is for the knowledge entrepreneur who's already in it — and ready to be honest about what's actually going on.</p>
+    </div>
+  </div>
+</div>
+
+<div class="rose-section reveal">
+  <div class="rose-inner">
+    <div class="rose-aside">
+      <p class="rose-name">Rose<br>Guthrie</p>
+      <p class="rose-role">Founder, The Driven CEO</p>
+    </div>
+    <div class="rose-body">
+      <h3>Not theory. 8 years inside the backend of real knowledge businesses.</h3>
+      <p>Rose started as a VA in 2015, moved into operations, and spent 8 years building the backend infrastructure of coaching and consulting businesses — many generating 7 and 8 figures.</p>
+      <p>She still runs an operations agency today. Everything she teaches comes from what's actually working right now — not a course she took or a framework she borrowed.</p>
+      <p><strong>The Driven CEO is built on the same operational frameworks Rose built for clients — made accessible for knowledge entrepreneurs ready to stop winging it.</strong></p>
+    </div>
+  </div>
+</div>
+
+<div class="optin-section" id="optin">
+  <div class="optin-inner">
+    <h2>Ready to find out what's <span>actually</span> keeping you stuck?</h2>
+    <p class="optin-sub">It's free. It's private. And it might be the most honest thing in your podcast app.</p>
+    <form class="optin-form" onsubmit="return false;">
+      <input type="text" placeholder="First name" />
+      <input type="email" placeholder="Email address" />
+      <button type="submit" class="btn-orange">Send Me the Podcast →</button>
+    </form>
+    <p class="optin-fine">No spam. Unsubscribe any time.</p>
+  </div>
+</div>
+
+<footer>
+  <span class="f-logo">© 2026 The Driven CEO LLC</span>
+  <div class="f-links"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+</footer>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target)}})},{threshold:0.1});
+reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
