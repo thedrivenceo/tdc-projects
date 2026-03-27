@@ -72,12 +72,12 @@ nav{background:var(--carbon);padding:20px 48px;display:flex;align-items:center;j
 .inside-inner{max-width:960px;margin:0 auto}
 .section-label{font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
 .inside h2{font-family:'Outfit',sans-serif;font-size:clamp(26px,4vw,46px);font-weight:600;color:var(--blush);line-height:1.2;margin-bottom:56px;max-width:580px}
-.inside-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.inside-item{background:rgba(249,244,242,.03);border:1px solid rgba(249,244,242,.07);padding:40px 36px;transition:background .25s}
-.inside-item:hover{background:rgba(249,79,33,.06)}
-.inside-num{font-family:'Outfit',sans-serif;font-size:52px;font-weight:600;color:rgba(249,244,242,.05);line-height:1;margin-bottom:16px}
-.inside-item h3{font-family:'Outfit',sans-serif;font-size:16px;font-weight:600;color:var(--blush);margin-bottom:8px}
-.inside-item p{font-size:14px;color:rgba(249,244,242,.52);line-height:1.65}
+.inside-list{display:flex;flex-direction:column;gap:0}
+.inside-item-row{display:flex;align-items:flex-start;gap:32px;padding:32px 0;border-bottom:1px solid rgba(249,244,242,.07)}
+.inside-item-row:first-child{border-top:1px solid rgba(249,244,242,.07)}
+.inside-num-inline{font-family:'Outfit',sans-serif;font-size:32px;font-weight:700;color:var(--orange);opacity:.5;flex-shrink:0;width:48px;line-height:1.2;margin-top:2px}
+.inside-item-row h3{font-family:'Outfit',sans-serif;font-size:18px;font-weight:600;color:var(--blush);margin-bottom:6px}
+.inside-item-row p{font-size:15px;color:rgba(249,244,242,.5);line-height:1.65}
 
 .for-you{background:var(--linen);padding:100px 48px}
 .for-you-inner{max-width:860px;margin:0 auto}
@@ -191,28 +191,24 @@ footer{background:var(--carbon);border-top:1px solid rgba(249,244,242,.06);paddi
 
 <div class="inside">
   <div class="inside-inner">
-    <p class="section-label reveal">What You'll Hear</p>
-    <h2 class="reveal">10 honest episodes on the part of your business nobody talks about.</h2>
-    <div class="inside-grid">
-      <div class="inside-item reveal">
-        <div class="inside-num">01</div>
-        <h3>The Real Ceiling</h3>
-        <p>Why you keep hitting the same revenue ceiling — and why it has nothing to do with your offer, your niche, or your mindset.</p>
+    <h2 class="reveal" style="font-size:clamp(36px,5vw,64px);margin-bottom:12px;">What You'll Hear</h2>
+    <p class="reveal" style="font-family:'Outfit',sans-serif;font-size:clamp(18px,2.2vw,26px);font-weight:300;color:rgba(249,244,242,.55);margin-bottom:56px;max-width:640px;line-height:1.5;">10 honest episodes on the part of your business nobody talks about. We're going to cover...</p>
+    <div class="inside-list">
+      <div class="inside-item-row reveal">
+        <span class="inside-num-inline">01</span>
+        <div><h3>The Real Ceiling</h3><p>Why you keep hitting the same revenue ceiling — and why it has nothing to do with your offer, your niche, or your mindset.</p></div>
       </div>
-      <div class="inside-item reveal">
-        <div class="inside-num">02</div>
-        <h3>The Real Cost</h3>
-        <p>What winging it is actually costing you — in revenue, in reputation, and in the mental load you carry every single day.</p>
+      <div class="inside-item-row reveal">
+        <span class="inside-num-inline">02</span>
+        <div><h3>The Real Cost</h3><p>What winging it is actually costing you — in revenue, in reputation, and in the mental load you carry every single day.</p></div>
       </div>
-      <div class="inside-item reveal">
-        <div class="inside-num">03</div>
-        <h3>Why It Didn't Stick</h3>
-        <p>Why every system you've tried has fallen apart — and what actually makes operational change stick this time.</p>
+      <div class="inside-item-row reveal">
+        <span class="inside-num-inline">03</span>
+        <div><h3>Why It Didn't Stick</h3><p>Why every system you've tried has fallen apart — and what actually makes operational change stick this time.</p></div>
       </div>
-      <div class="inside-item reveal">
-        <div class="inside-num">04</div>
-        <h3>The Other Side</h3>
-        <p>What your business actually looks like when the backend works — and the real client results that prove it's possible.</p>
+      <div class="inside-item-row reveal">
+        <span class="inside-num-inline">04</span>
+        <div><h3>The Other Side</h3><p>What your business actually looks like when the backend works — and the real client results that prove it's possible.</p></div>
       </div>
     </div>
   </div>
