@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In! | 5-Day Systems Upgrade Sprint</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0C343D;
+  --pacific: #77B1B8;
+  --mint: #E5F7F7;
+  --purple: #C580D6;
+  --lilac: #F1E9FE;
+  --green: #AEE524;
+  --lime-cream: #DFF5AB;
+  --cream: #FFFBF8;
+  --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--navy);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--mint) 0%, var(--lilac) 50%, var(--pacific) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 60px 24px;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -15%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(197, 128, 214, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.page::after {
+  content: '';
+  position: absolute;
+  bottom: -15%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(174, 229, 36, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 28px;
+  padding: 60px 56px;
+  max-width: 640px;
+  width: 100%;
+  box-shadow: 0 24px 80px rgba(12, 52, 61, 0.1), 0 1px 3px rgba(12, 52, 61, 0.04);
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.6s ease both;
+}
+
+.check-circle {
+  width: 72px;
+  height: 72px;
+  background: var(--green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  animation: scaleIn 0.5s ease 0.2s both;
+}
+
+.check-circle svg {
+  width: 32px;
+  height: 32px;
+  stroke: var(--navy);
+  stroke-width: 3;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.card h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.card .subtitle {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--navy);
+  opacity: 0.7;
+  margin-bottom: 40px;
+}
+
+.steps {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.steps li {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(12, 52, 61, 0.06);
+}
+
+.steps li:last-child {
+  border-bottom: none;
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: var(--lilac);
+  color: var(--purple);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.step-content h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.step-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--navy);
+  opacity: 0.65;
+}
+
+.email-highlight {
+  display: inline-block;
+  background: var(--lime-cream);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--navy);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(12, 52, 61, 0.1), transparent);
+  margin: 8px 0 32px;
+}
+
+.share-section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--navy);
+}
+
+.share-section p {
+  font-size: 14px;
+  color: var(--navy);
+  opacity: 0.6;
+  margin-bottom: 20px;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: 2px solid rgba(12, 52, 61, 0.1);
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  background: var(--cream);
+  transition: border-color 0.3s, background 0.3s;
+  cursor: pointer;
+}
+
+.share-btn:hover {
+  border-color: var(--pacific);
+  background: var(--mint);
+}
+
+.signoff {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(12, 52, 61, 0.06);
+  font-size: 15px;
+  color: var(--navy);
+}
+
+.signoff strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.signoff span {
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 640px) {
+  .card { padding: 40px 28px; }
+  .share-buttons { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="card">
+    <div class="check-circle">
+      <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+    </div>
+
+    <h1>You're in. Here's what happens next.</h1>
+    <p class="subtitle">Check your inbox — your welcome email is on its way with everything you need to know about the sprint.</p>
+
+    <ul class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Check your spam & promotions folder</h3>
+          <p>Move the email to your primary inbox so you don't miss any of the five days.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Add us to your contacts</h3>
+          <p>Add <span class="email-highlight">hello@thedrivenceo.com</span> to your address book to ensure delivery.</p>
+        </div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Clear 10 minutes each morning</h3>
+          <p>These are detailed, educational emails designed to be useful — not skimmed. Give yourself the time to read them properly.</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <div class="share-section">
+      <h3>Know someone who needs this?</h3>
+      <p>Share the sprint with a fellow coach, consultant, or course creator.</p>
+      <div class="share-buttons">
+        <a class="share-btn" href="#">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Share on Instagram
+        </a>
+        <a class="share-btn" href="#">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Share on Facebook
+        </a>
+        <a class="share-btn" href="#">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>
+          Share on X
+        </a>
+        <a class="share-btn" href="#">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          Copy Link
+        </a>
+      </div>
+    </div>
+
+    <div class="signoff">
+      <p>See you in your inbox.</p>
+      <strong>— Rose</strong>
+      <span>Founder, The Driven CEO</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
