@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Systems Upgrade Sprint | The Systems Guild</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0C343D;
+  --pacific: #77B1B8;
+  --mint: #E5F7F7;
+  --purple: #C580D6;
+  --lilac: #F1E9FE;
+  --green: #AEE524;
+  --lime-cream: #DFF5AB;
+  --cream: #FFFBF8;
+  --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; color: var(--navy); background: var(--cream); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+/* ═══ TOP BAR ═══ */
+.top-bar {
+  background: var(--navy);
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.top-bar-text {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.top-bar-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  background: var(--green);
+  color: var(--navy);
+  border: none;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.top-bar-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(174, 229, 36, 0.3);
+}
+
+/* ═══ LOGO HEADER ═══ */
+.logo-header {
+  background: linear-gradient(160deg, var(--mint) 0%, var(--lilac) 60%, rgba(197, 128, 214, 0.3) 100%);
+  text-align: center;
+  padding: 100px 40px 60px;
+  margin-top: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-header::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.logo-header .logo-preheader {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  opacity: 0.7;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 24px;
+}
+
+.logo-header .logo-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+
+.logo-header .logo-title em {
+  font-style: italic;
+  color: var(--purple);
+}
+
+.logo-header .logo-description {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--navy);
+  opacity: 0.7;
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.logo-header .logo-tagline {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pacific);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-image-placeholder {
+  margin-top: 32px;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--mint), var(--lilac));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--navy);
+  opacity: 0.4;
+}
+
+/* ═══ HERO ═══ */
+.hero {
+  background: linear-gradient(180deg, rgba(241, 233, 254, 0.3) 0%, var(--cream) 100%);
+  padding: 80px 40px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--green);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+  animation: fadeInUp 0.6s ease both;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--navy);
+  margin-bottom: 20px;
+  animation: fadeInUp 0.6s ease 0.1s both;
+}
+
+.hero h1 em { font-style: italic; color: var(--purple); }
+
+.hero-sub {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--navy);
+  opacity: 0.75;
+  margin-bottom: 0;
+  max-width: 500px;
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+/* ═══ FORM ═══ */
+.form-card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 44px 36px;
+  box-shadow: 0 20px 60px rgba(12, 52, 61, 0.08), 0 1px 3px rgba(12, 52, 61, 0.04);
+  animation: fadeInUp 0.6s ease 0.3s both;
+}
+
+.form-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+
+.form-card .form-sub { font-size: 14px; color: var(--navy); opacity: 0.6; margin-bottom: 28px; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--navy); opacity: 0.7; margin-bottom: 7px; }
+
+.form-group input, .form-group select {
+  width: 100%; padding: 15px 18px; border: 2px solid rgba(12, 52, 61, 0.1); border-radius: 12px;
+  font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--navy); background: var(--cream);
+  transition: border-color 0.3s, box-shadow 0.3s; outline: none; -webkit-appearance: none; appearance: none;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230C343D' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 16px center; padding-right: 44px; cursor: pointer;
+}
+
+.form-group input:focus, .form-group select:focus { border-color: var(--pacific); box-shadow: 0 0 0 4px rgba(119, 177, 184, 0.15); }
+.form-group input::placeholder { color: var(--navy); opacity: 0.35; }
+
+.btn-primary {
+  width: 100%; padding: 17px 32px; background: var(--green); color: var(--navy); border: none; border-radius: 100px;
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; margin-top: 6px;
+}
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(174, 229, 36, 0.3); background: #b8ef1a; }
+
+.btn-sub {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+.form-fine { text-align: center; font-size: 13px; color: var(--navy); opacity: 0.5; margin-top: 14px; }
+
+/* ═══ SECTIONS ═══ */
+.section { padding: 100px 40px; max-width: 1200px; margin: 0 auto; }
+.section-navy { background: var(--navy); color: var(--cream); max-width: none; padding: 100px 40px; }
+.section-navy .inner { max-width: 1200px; margin: 0 auto; }
+
+.section-tag {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--pacific); margin-bottom: 20px;
+}
+.section-tag::before { content: ''; display: inline-block; width: 24px; height: 2px; background: var(--pacific); }
+
+.section h2, .section-navy h2 {
+  font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 600; line-height: 1.2; margin-bottom: 32px;
+}
+.section-navy h2 { color: var(--cream); }
+.section p, .section-navy p { font-size: 17px; line-height: 1.8; opacity: 0.85; margin-bottom: 20px; max-width: 720px; }
+
+/* ═══ PROBLEM WITH IMAGE ═══ */
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+
+.problem-image {
+  border-radius: 20px; overflow: hidden; aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--pacific), var(--purple));
+  display: flex; align-items: center; justify-content: center;
+  position: sticky; top: 100px;
+}
+
+.problem-image-placeholder {
+  font-family: 'Playfair Display', serif; font-size: 16px; color: var(--white); opacity: 0.5; text-align: center; padding: 24px;
+}
+
+.check-list { list-style: none; margin: 32px 0; }
+.check-list li {
+  position: relative; padding: 12px 0 12px 40px; font-size: 16px; line-height: 1.6;
+  border-bottom: 1px solid rgba(119, 177, 184, 0.15);
+}
+.check-list li::before {
+  content: '✓'; position: absolute; left: 0; top: 14px; width: 24px; height: 24px;
+  background: var(--green); color: var(--navy); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700;
+}
+
+/* ═══ HIGHLIGHT QUOTE ═══ */
+.highlight-section {
+  background: var(--mint);
+  padding: 80px 40px;
+}
+
+.highlight-section-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.highlight-quote {
+  background: linear-gradient(135deg, var(--lilac), var(--cream));
+  border-radius: 20px; padding: 56px 64px; position: relative;
+}
+
+.highlight-quote p {
+  font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 500; line-height: 1.5; color: var(--navy); opacity: 1; max-width: none; margin-bottom: 0;
+}
+
+.highlight-quote::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+  background: var(--green); border-radius: 4px 0 0 4px;
+}
+
+/* ═══ DAYS ═══ */
+.days-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 48px; }
+
+.day-card {
+  background: var(--white); border-radius: 20px; padding: 32px 28px;
+  border: 1px solid rgba(12, 52, 61, 0.06); transition: transform 0.3s, box-shadow 0.3s;
+}
+.day-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(12, 52, 61, 0.08); }
+
+.day-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; background: var(--lilac); color: var(--purple);
+  font-weight: 700; font-size: 14px; border-radius: 10px; margin-bottom: 14px;
+}
+
+.day-card h3 { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; margin-bottom: 8px; color: var(--navy); }
+.day-card .pillar { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--pacific); margin-bottom: 10px; }
+.day-card p { font-size: 14px; line-height: 1.6; color: var(--navy); opacity: 0.7; }
+
+.day-card-cta {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 16px;
+  padding: 10px 20px; background: var(--green); color: var(--navy);
+  border: none; border-radius: 100px; font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  text-decoration: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+}
+.day-card-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(174, 229, 36, 0.3); }
+
+.day-card.foundation { border: 2px solid var(--lime-cream); background: linear-gradient(135deg, var(--white), rgba(223, 245, 171, 0.15)); }
+.day-card.foundation .day-num { background: var(--green); color: var(--navy); }
+
+.foundation-tag {
+  display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--navy); background: var(--lime-cream); padding: 4px 10px; border-radius: 100px; margin-bottom: 10px;
+}
+
+.day-card.personalised { border: 2px solid var(--lilac); }
+.day-card.personalised .day-num { background: var(--purple); color: var(--white); }
+
+.personalised-tag {
+  display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--purple); background: var(--lilac); padding: 4px 10px; border-radius: 100px; margin-bottom: 10px;
+}
+
+/* ═══ WHO IT'S FOR ═══ */
+.for-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+
+.for-card {
+  background: rgba(119, 177, 184, 0.08); border-radius: 20px; padding: 36px 32px;
+}
+.for-card h3 { font-family: 'Playfair Display', serif; font-size: 21px; font-weight: 600; margin-bottom: 24px; color: var(--cream); }
+.for-card ul { list-style: none; }
+.for-card ul li { position: relative; padding: 10px 0 10px 36px; font-size: 15px; line-height: 1.6; color: var(--cream); opacity: 0.85; }
+
+.for-yes li::before {
+  content: '✓'; position: absolute; left: 0; top: 12px; width: 24px; height: 24px;
+  background: var(--green); color: var(--navy); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700;
+}
+
+.for-no li::before {
+  content: '✕'; position: absolute; left: 0; top: 12px; width: 24px; height: 24px;
+  background: rgba(197, 128, 214, 0.3); color: var(--cream); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700;
+}
+
+/* ═══ ABOUT ═══ */
+.about-section {
+  background: var(--lilac);
+  padding: 100px 40px;
+}
+
+.about-section .about-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: center; }
+
+.about-img {
+  width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, var(--white), var(--mint));
+  border-radius: 24px; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: var(--navy); opacity: 0.4; text-align: center; padding: 20px;
+  box-shadow: 0 12px 40px rgba(12, 52, 61, 0.08);
+}
+
+.btn-scroll {
+  display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px;
+  background: var(--green); color: var(--navy); border: none; border-radius: 100px;
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
+  cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; margin-top: 16px;
+}
+.btn-scroll:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(174, 229, 36, 0.3); }
+
+/* ═══ FAQ ═══ */
+.faq-list { max-width: 800px; margin: 48px auto 0; }
+.faq-item { border-bottom: 1px solid rgba(12, 52, 61, 0.08); }
+
+.faq-question {
+  width: 100%; background: none; border: none; padding: 24px 48px 24px 0; text-align: left;
+  font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 600; color: var(--navy);
+  cursor: pointer; position: relative; transition: color 0.2s;
+}
+.faq-question::after {
+  content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  font-size: 24px; font-weight: 300; color: var(--pacific); transition: transform 0.3s;
+}
+.faq-item.open .faq-question::after { content: '−'; }
+.faq-question:hover { color: var(--pacific); }
+
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+.faq-item.open .faq-answer { max-height: 300px; padding-bottom: 24px; }
+.faq-answer p { font-size: 15px; line-height: 1.7; color: var(--navy); opacity: 0.7; max-width: none; }
+
+/* ═══ CTA ═══ */
+.cta-section { background: linear-gradient(160deg, var(--mint) 0%, var(--lilac) 100%); padding: 100px 40px; text-align: center; }
+.cta-section .inner { max-width: 680px; margin: 0 auto; }
+.cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 600; color: var(--navy); margin-bottom: 20px; }
+.cta-section p { font-size: 17px; line-height: 1.7; color: var(--navy); opacity: 0.8; margin-bottom: 40px; max-width: 560px; margin-left: auto; margin-right: auto; }
+
+.cta-form-inline {
+  background: var(--white); border-radius: 24px; padding: 44px 36px;
+  box-shadow: 0 20px 60px rgba(12, 52, 61, 0.08); max-width: 480px; margin: 0 auto; text-align: left;
+}
+
+/* ═══ FOOTER ═══ */
+.footer { background: var(--navy); color: var(--cream); padding: 40px; text-align: center; font-size: 14px; opacity: 0.6; }
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .problem-image { position: static; max-height: 400px; }
+  .for-grid { grid-template-columns: 1fr; gap: 20px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-img { max-width: 280px; }
+  .about-section { padding: 80px 24px; }
+  .section, .section-navy { padding: 80px 24px; }
+  .form-card, .cta-form-inline { padding: 32px 24px; }
+  .highlight-quote { padding: 28px 32px; }
+  .highlight-section { padding: 60px 24px; }
+  .logo-header { padding: 80px 24px 48px; }
+  .hero { padding: 60px 24px; }
+}
+
+@media (max-width: 600px) {
+  .days-grid { grid-template-columns: 1fr; }
+  .top-bar-text { font-size: 11px; letter-spacing: 1px; }
+  .top-bar-btn { font-size: 11px; padding: 6px 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ TOP BAR ═══════ -->
+<div class="top-bar">
+  <span class="top-bar-text">Free Systems Upgrade Sprint</span>
+  <a href="#signup" class="top-bar-btn">Join Now →</a>
+</div>
+
+<!-- ═══════ LOGO HEADER ═══════ -->
+<section class="logo-header">
+  <div class="logo-preheader">For Coaches, Consultants & Creators who feel like their systems are stunting their growth</div>
+  <div class="logo-title">The Systems<br>Upgrade <em>Sprint</em></div>
+  <div class="logo-description">Discover how to upgrade the core systems in your knowledge-based business using automation and AI — tailored to how you work with clients.</div>
+</section>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="signup">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <h1>Your Systems Are Clearly Broken. Let's Make Them <em>Actually Work.</em></h1>
+      <div class="hero-image-placeholder">[ Your image here ]</div>
+    </div>
+    <div class="form-card">
+      <h2>Join the Sprint</h2>
+      <p class="form-sub">One detailed email a day. Starts immediately.</p>
+      <form>
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Your first name">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label>How do you work with clients?</label>
+          <select>
+            <option value="" disabled selected>Select your business model</option>
+            <option value="1:1">I coach clients 1:1</option>
+            <option value="group">I run a group coaching programme</option>
+            <option value="digital">I sell digital products (courses, ebooks, templates)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary">Start My Systems Upgrade<span class="btn-sub">100% FREE · NO CREDIT CARD REQUIRED</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROBLEM ═══════ -->
+<section class="section-navy">
+  <div class="inner">
+    <div class="problem-grid">
+      <div class="problem-content">
+        <span class="section-tag">The Real Issue</span>
+        <h2>You're not starting from zero.<br>That's actually the problem.</h2>
+        <p>You've already built a business. You've got clients. You've got offers. You've got a way to create content, capture leads, send emails, sell, and deliver.</p>
+        <p>But honestly? Most of it's held together with duct tape, good intentions, and your willingness to do everything manually.</p>
+        <ul class="check-list">
+          <li>You're creating content consistently but can't point to a single piece that directly led to a sale</li>
+          <li>Leads come in but go cold because there's no automated follow-up</li>
+          <li>Your onboarding process is different every time someone pays you</li>
+          <li>You're the bottleneck in your own business — nothing moves without your direct involvement</li>
+          <li>You know automation and AI could help, but you don't know where to start</li>
+          <li>You've tried tools before but ended up with a Frankenstein stack that doesn't talk to itself</li>
+        </ul>
+      </div>
+      <div class="problem-image">
+        <span class="problem-image-placeholder">[ Your image here ]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ HIGHLIGHT QUOTE ═══════ -->
+<section class="highlight-section">
+  <div class="highlight-section-inner">
+    <div class="highlight-quote">
+      <p>The issue isn't that you don't have systems. It's that your systems aren't optimised. They're not automated. They're not connected. And they're costing you time, money, and sanity every single day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHAT YOU'LL LEARN ═══════ -->
+<section class="section">
+  <span class="section-tag">The Sprint</span>
+  <h2>Your complete systems<br>upgrade plan.</h2>
+  <p>Each day, you'll receive a detailed, educational email breaking down one core system — what's likely broken, what an optimised version looks like, and how to use automation and AI to make it work without you. Plus a video walkthrough so you can see it in action.</p>
+
+  <div class="days-grid">
+    <div class="day-card foundation">
+      <div class="day-num">01</div>
+      <span class="foundation-tag">Foundation</span>
+      <h3>Your Customer Journey</h3>
+      <p>Before you optimise anything, you need clarity on how people move through your business. We'll map your complete customer journey — from stranger to buyer to advocate — so every system you build connects to a clear path.</p>
+    </div>
+    <div class="day-card">
+      <div class="day-num">02</div>
+      <div class="pillar">Visibility</div>
+      <h3>Your Content System</h3>
+      <p>Turn your content into a repeatable visibility engine with a creation pipeline, a repurposing system, and a tracking layer that shows you what's actually working.</p>
+    </div>
+    <div class="day-card">
+      <div class="day-num">03</div>
+      <div class="pillar">Demand</div>
+      <h3>Your Lead Generation</h3>
+      <p>Strategic lead magnets aligned to your offers, context-aware capture points, instant segmentation, and source tracking that connects lead to revenue.</p>
+    </div>
+    <div class="day-card">
+      <div class="day-num">04</div>
+      <div class="pillar">Connection</div>
+      <h3>Your Nurture Sequences</h3>
+      <p>Automated nurture that feels personal — segmented welcome sequences, behaviour-based triggers, engagement scoring, and list hygiene that keeps your audience warm.</p>
+    </div>
+    <div class="day-card personalised">
+      <div class="day-num">05</div>
+      <span class="personalised-tag">Tailored to You</span>
+      <div class="pillar">Revenue</div>
+      <h3>Your Sales System</h3>
+      <p>Coaches get application funnels, booking systems, and post-call follow-up. Digital product creators get sales pages, order forms, and abandoned cart recovery.</p>
+    </div>
+    <div class="day-card personalised">
+      <div class="day-num">06</div>
+      <span class="personalised-tag">Tailored to You</span>
+      <div class="pillar">Fulfilment</div>
+      <h3>Your Client Delivery</h3>
+      <p>1:1 coaches get client portals and scheduling. Group coaches get community and programme management. Creators get access delivery and support infrastructure.</p>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 48px;">
+    <a href="#signup" class="btn-scroll" style="font-size: 15px; padding: 20px 44px; letter-spacing: 1.5px;">Start My Systems Upgrade →</a>
+  </div>
+</section>
+
+<!-- ═══════ WHO IT'S FOR ═══════ -->
+<section class="section-navy">
+  <div class="inner">
+    <span class="section-tag">Is This for You?</span>
+    <h2>Built for a specific kind<br>of business owner.</h2>
+    <div class="for-grid">
+      <div class="for-card">
+        <h3>This is for you if:</h3>
+        <ul class="for-yes">
+          <li>You're a coach, consultant, or course creator already generating revenue</li>
+          <li>You have systems in place but they're manual, inconsistent, or cobbled together</li>
+          <li>You know you should be using automation and AI but don't know where to start</li>
+          <li>You're tired of being the bottleneck in your own business</li>
+          <li>You want practical, detailed breakdowns — not surface-level "tips"</li>
+        </ul>
+      </div>
+      <div class="for-card">
+        <h3>This probably isn't for you if:</h3>
+        <ul class="for-no">
+          <li>You haven't started your business yet (this assumes you have existing systems to upgrade)</li>
+          <li>You're looking for a quick-fix checklist (these are detailed, in-depth emails)</li>
+          <li>You're not in a knowledge-based business (the strategies are specific to coaches, consultants, and creators)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section class="about-section">
+  <div class="about-grid">
+    <div class="about-img">[ Photo of Rose ]</div>
+    <div>
+      <span class="section-tag">Your Guide</span>
+      <h2>Hi, I'm Rose.</h2>
+      <p>I'm the founder of The Driven CEO and I've spent 8 years as the behind-the-scenes operator for coaching and consulting brands — building the systems, automations, and workflows that make these businesses actually run.</p>
+      <p>I created the Driven CEO Framework — an 8-pillar methodology covering Visibility, Demand, Connection, Revenue, Fulfilment, Ascend, Operations, and Product Management — because I kept seeing the same problems in every business I worked with: talented entrepreneurs held hostage by broken, manual, disconnected systems.</p>
+      <p>This sprint distils everything I've learned into focused, actionable days. No fluff. No theory. Just the stuff that moves the needle.</p>
+      <a href="#signup" class="btn-scroll">Join the Sprint — It's Free →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FAQ ═══════ -->
+<section class="section" style="padding-top: 40px;">
+  <span class="section-tag">FAQ</span>
+  <h2>Got questions?</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Do I need specific tools to do this?</button>
+      <div class="faq-answer"><p>No. The sprint is completely tool-agnostic — everything I teach applies regardless of what platforms you're using. That said, I will make recommendations along the way for tools that work particularly well for knowledge-based businesses.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What AI platform should I be using?</button>
+      <div class="faq-answer"><p>That's entirely up to you. There's no single "right" AI tool — it depends on your workflow and what you're comfortable with. I'll share my recommendations during the sprint, but nothing is required or mandatory.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is this for me if I have no systems set up yet?</button>
+      <div class="faq-answer"><p>This sprint is ideally designed for people who already have systems but have realised they're not working properly. That said, you may still take away valuable insights about what to build and how to build it right from the start. It's free, so you have nothing to lose.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How much time will this take each day?</button>
+      <div class="faq-answer"><p>About 10–15 minutes to read each email, plus an optional video walkthrough if you want to go deeper. These aren't surface-level tips — they're detailed and educational, so give yourself the time to read them properly rather than skimming.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Why are some days tailored to my business model?</button>
+      <div class="faq-answer"><p>Because sales and fulfilment look fundamentally different depending on whether you coach 1:1, run group programmes, or sell digital products. A 1:1 coach needs an application funnel and client portal. A course creator needs a self-serve checkout and support infrastructure. Generic advice doesn't cut it — so we personalise it based on what you told us at sign-up.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is there anything for sale at the end?</button>
+      <div class="faq-answer"><p>I'll share options for continued support if you want it — including a done-for-you CRM platform and strategic operations services — but there's absolutely no obligation. The sprint stands on its own as a complete, actionable resource. Many people will implement everything themselves using just the emails and videos.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I do this sprint at my own pace?</button>
+      <div class="faq-answer"><p>The emails are delivered one per day, but they're yours to keep. If you need to take a day off or revisit an earlier email, you can absolutely go at your own pace. The videos are available anytime.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FINAL CTA ═══════ -->
+<section class="cta-section">
+  <div class="inner">
+    <h2>Ready to upgrade<br>your systems?</h2>
+    <p>Join The Systems Upgrade Sprint and get detailed, actionable breakdowns tailored to how you work with clients.</p>
+    <a href="#signup" class="btn-scroll" style="font-size:15px; padding:20px 40px; letter-spacing:1.5px;">Start My Systems Upgrade →</a>
+    <p class="form-fine" style="margin-top:20px;">100% free. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<footer class="footer"><p>© 2026 The Systems Guild by The Driven CEO LLC. All rights reserved.</p></footer>
+</body>
+</html>
