@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 1: Your Customer Journey | The Systems Upgrade Sprint</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0C343D;
+  --pacific: #77B1B8;
+  --mint: #E5F7F7;
+  --purple: #C580D6;
+  --lilac: #F1E9FE;
+  --green: #AEE524;
+  --lime-cream: #DFF5AB;
+  --cream: #FFFBF8;
+  --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; color: var(--navy); background: var(--cream); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+/* ═══ TOP BAR ═══ */
+.top-bar {
+  background: var(--navy);
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.top-bar-text {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.top-bar-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  background: var(--green);
+  color: var(--navy);
+  border: none;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.top-bar-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(174, 229, 36, 0.3);
+}
+
+/* ═══ DAY HEADER ═══ */
+.day-header {
+  background: linear-gradient(160deg, var(--mint) 0%, var(--lilac) 60%, rgba(197, 128, 214, 0.3) 100%);
+  text-align: center;
+  padding: 80px 40px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.day-header::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.day-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--green);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.day-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.15;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+}
+
+.day-header h1 em {
+  font-style: italic;
+  color: var(--purple);
+}
+
+.day-header .day-description {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--navy);
+  opacity: 0.7;
+  max-width: 640px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.day-header .sprint-name {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--pacific);
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══ VIDEO SECTION ═══ */
+.video-section {
+  padding: 80px 40px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.video-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--navy);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(12, 52, 61, 0.15);
+}
+
+.video-placeholder {
+  text-align: center;
+  color: var(--cream);
+}
+
+.video-placeholder .play-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: background 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+
+.video-placeholder .play-icon:hover {
+  background: rgba(174, 229, 36, 0.2);
+  border-color: var(--green);
+}
+
+.video-placeholder .play-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--cream);
+  margin-left: 4px;
+}
+
+.video-placeholder p {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+/* ═══ HOMEWORK SECTION ═══ */
+.homework-section {
+  background: var(--mint);
+  padding: 80px 40px;
+}
+
+.homework-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.homework-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--pacific);
+  margin-bottom: 20px;
+}
+
+.homework-tag::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--pacific);
+}
+
+.homework-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+
+.homework-section p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--navy);
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.homework-list {
+  list-style: none;
+  margin: 32px 0;
+}
+
+.homework-list li {
+  position: relative;
+  padding: 16px 0 16px 56px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--navy);
+  border-bottom: 1px solid rgba(12, 52, 61, 0.08);
+}
+
+.homework-list li:last-child {
+  border-bottom: none;
+}
+
+.homework-list li::before {
+  content: attr(data-step);
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 36px;
+  height: 36px;
+  background: var(--lilac);
+  color: var(--purple);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ═══ RESOURCES CTA ═══ */
+.resources-section {
+  background: var(--lilac);
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.resources-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.resources-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.resources-section p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--navy);
+  opacity: 0.7;
+  margin-bottom: 32px;
+}
+
+.btn-resource {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 36px;
+  background: var(--green);
+  color: var(--navy);
+  border: none;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-resource:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(174, 229, 36, 0.3);
+}
+
+/* ═══ NEXT DAY TEASER ═══ */
+.next-day {
+  background: var(--navy);
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.next-day-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.next-day p {
+  font-size: 15px;
+  color: var(--cream);
+  opacity: 0.6;
+  margin-bottom: 8px;
+}
+
+.next-day h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.next-day .next-day-sub {
+  font-size: 14px;
+  color: var(--pacific);
+  opacity: 0.8;
+}
+
+/* ═══ FOOTER ═══ */
+.footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(119, 177, 184, 0.15);
+  color: var(--cream);
+  padding: 32px 40px;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  .day-header { padding: 60px 24px 48px; }
+  .video-section { padding: 60px 24px; }
+  .homework-section { padding: 60px 24px; }
+  .resources-section { padding: 60px 24px; }
+  .next-day { padding: 48px 24px; }
+  .top-bar { padding: 12px 24px; }
+  .top-bar-text { font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ DAY HEADER ═══════ -->
+<section class="day-header">
+  <div class="sprint-name">The Systems Upgrade Sprint</div>
+  <div class="day-label">Day 1</div>
+  <h1>Your Customer <em>Journey</em></h1>
+  <p class="day-description">Before you optimise anything, you need clarity on how people move through your business. Today we're mapping your complete customer journey — from stranger to buyer to advocate — so every system you build connects to a clear path.</p>
+</section>
+
+<!-- ═══════ VIDEO ═══════ -->
+<section class="video-section">
+  <div class="video-container">
+    <div class="video-placeholder">
+      <div class="play-icon">
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
+      <p>[ Embed your video here ]</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ HOMEWORK ═══════ -->
+<section class="homework-section">
+  <div class="homework-inner">
+    <span class="homework-tag">Your Homework</span>
+    <h2>Put this into practice today.</h2>
+    <p>Don't just watch — take action. Here's what I want you to do before tomorrow's email lands in your inbox:</p>
+    <ol class="homework-list">
+      <li data-step="1">[ Homework step 1 — customise per day ]</li>
+      <li data-step="2">[ Homework step 2 — customise per day ]</li>
+      <li data-step="3">[ Homework step 3 — customise per day ]</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══════ RESOURCES CTA ═══════ -->
+<section class="resources-section">
+  <div class="resources-inner">
+    <h2>Grab today's resources</h2>
+    <p>I've put together a resource to help you implement what you learned today. Download it, use it, and come back tomorrow ready for the next system.</p>
+    <a href="[LINK TO RESOURCE]" class="btn-resource">Download the Resource →</a>
+  </div>
+</section>
+
+<!-- ═══════ NEXT DAY TEASER ═══════ -->
+<section class="next-day">
+  <div class="next-day-inner">
+    <p>Coming up tomorrow</p>
+    <h3>Day 2: Your Content System</h3>
+    <p class="next-day-sub">Turn your content into a visibility engine, not a to-do list.</p>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <p>© 2026 The Systems Guild by The Driven CEO LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
