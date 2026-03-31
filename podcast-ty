@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In — The Driven CEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--carbon:#1A1A1C;--orange:#F94F21;--blush:#F9F4F2;--linen:#EFD7D5;--platinum:#D7E1E2;--wisteria:#6E79BA;--white:#FFFFFF;--mid:#6B6560}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Open Sans',sans-serif;background:var(--blush);color:var(--carbon);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* NAV */
+nav{background:var(--carbon);padding:20px 48px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--blush)}
+
+/* HERO */
+.hero{background:var(--carbon);padding:80px 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(249,79,33,.07) 0%,transparent 70%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
+.confirm-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,79,33,.12);border:1px solid rgba(249,79,33,.3);border-radius:100px;padding:8px 20px;margin-bottom:28px;opacity:0;animation:fadeUp .6s ease forwards .1s}
+.confirm-badge span{font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
+.check{width:16px;height:16px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.check::after{content:'✓';font-size:10px;color:white;font-weight:700}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(36px,5vw,68px);font-weight:600;color:var(--blush);line-height:1.1;margin-bottom:16px;opacity:0;animation:fadeUp .7s ease forwards .2s}
+.hero h1 span{color:var(--orange)}
+.hero-sub{font-family:'Outfit',sans-serif;font-size:clamp(15px,1.8vw,19px);font-weight:300;color:rgba(249,244,242,.5);max-width:520px;margin:0 auto;opacity:0;animation:fadeUp .7s ease forwards .35s}
+
+/* INSTRUCTION STRIP */
+.strip{background:var(--orange);padding:13px 48px;text-align:center}
+.strip p{font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--white)}
+
+/* WHAT TO EXPECT */
+.expect{background:var(--blush);padding:80px 48px}
+.expect-inner{max-width:860px;margin:0 auto}
+.expect h2{font-family:'Outfit',sans-serif;font-size:clamp(24px,3vw,38px);font-weight:600;color:var(--carbon);margin-bottom:8px}
+.expect-sub{font-size:16px;color:var(--mid);margin-bottom:48px}
+.steps{display:flex;flex-direction:column;gap:0}
+.step{display:flex;align-items:flex-start;gap:24px;padding:28px 0;border-bottom:1px solid rgba(26,26,28,.08)}
+.step:first-child{border-top:1px solid rgba(26,26,28,.08)}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--carbon);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-num span{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:var(--orange)}
+.step-content h3{font-family:'Outfit',sans-serif;font-size:17px;font-weight:600;color:var(--carbon);margin-bottom:4px}
+.step-content p{font-size:15px;color:var(--mid);line-height:1.65}
+
+/* EPISODE PREVIEW */
+.episodes{background:var(--carbon);padding:80px 48px}
+.episodes-inner{max-width:860px;margin:0 auto}
+.section-label{font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.episodes h2{font-family:'Outfit',sans-serif;font-size:clamp(24px,3vw,38px);font-weight:600;color:var(--blush);margin-bottom:40px}
+.ep-grid{display:flex;flex-direction:column;gap:0}
+.ep-row{display:flex;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid rgba(249,244,242,.06)}
+.ep-row:first-child{border-top:1px solid rgba(249,244,242,.06)}
+.ep-n{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:var(--orange);width:28px;flex-shrink:0;opacity:.7}
+.ep-title{font-family:'Outfit',sans-serif;font-size:15px;font-weight:400;color:rgba(249,244,242,.65);flex:1;line-height:1.4}
+.ep-dot{width:6px;height:6px;border-radius:50%;background:rgba(249,244,242,.12);flex-shrink:0}
+
+/* OFFERS */
+.offers{background:var(--linen);padding:80px 48px}
+.offers-inner{max-width:860px;margin:0 auto}
+.offers h2{font-family:'Outfit',sans-serif;font-size:clamp(22px,2.8vw,34px);font-weight:600;color:var(--carbon);margin-bottom:8px}
+.offers-sub{font-size:16px;color:var(--mid);margin-bottom:40px}
+.offer-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.offer-card{background:var(--blush);border-radius:12px;padding:32px 28px;border:1px solid rgba(26,26,28,.08)}
+.offer-card.featured{background:var(--carbon);border-color:transparent}
+.offer-tag{font-family:'Outfit',sans-serif;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.offer-card h3{font-family:'Outfit',sans-serif;font-size:20px;font-weight:600;color:var(--carbon);margin-bottom:6px}
+.offer-card.featured h3{color:var(--blush)}
+.offer-price{font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;color:var(--mid);margin-bottom:14px}
+.offer-card.featured .offer-price{color:rgba(249,244,242,.45)}
+.offer-card p{font-size:14px;color:var(--mid);line-height:1.65;margin-bottom:20px}
+.offer-card.featured p{color:rgba(249,244,242,.5)}
+.btn-orange{display:inline-block;background:var(--orange);color:var(--white);font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:14px 28px;border-radius:100px;text-decoration:none;transition:opacity .2s}
+.btn-orange:hover{opacity:.85}
+.btn-outline{display:inline-block;background:transparent;color:var(--carbon);font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:13px 28px;border-radius:100px;text-decoration:none;border:1.5px solid rgba(26,26,28,.25);transition:all .2s}
+.btn-outline:hover{background:var(--carbon);color:var(--blush)}
+
+/* FOOTER */
+footer{background:var(--carbon);border-top:1px solid rgba(249,244,242,.06);padding:32px 48px;display:flex;justify-content:space-between;align-items:center}
+.f-logo{font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:.1em;color:rgba(249,244,242,.2)}
+.f-links{display:flex;gap:24px}
+.f-links a{font-size:12px;color:rgba(249,244,242,.2);text-decoration:none}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:768px){nav,.hero,.expect,.episodes,.offers,footer{padding-left:24px;padding-right:24px}.offer-cards{grid-template-columns:1fr}footer{flex-direction:column;gap:16px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">The Driven CEO</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="confirm-badge"><div class="check"></div><span>You're confirmed</span></div>
+  <h1>Check Your <span>Inbox</span></h1>
+  <p class="hero-sub">Your private podcast access is on its way to you right now.</p>
+</section>
+
+<div class="strip"><p>Real Talk: The Truth About Building A Sustainable Business · 10 Episodes · Free Access</p></div>
+
+<!-- WHAT TO EXPECT -->
+<section class="expect">
+  <div class="expect-inner">
+    <h2>While you wait — here's what to expect</h2>
+    <p class="expect-sub">Three things to do right now to get the most from the podcast.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"><span>1</span></div>
+        <div class="step-content">
+          <h3>Check your inbox for an email from Rose at The Driven CEO</h3>
+          <p>Your private access link is in that email. If you don't see it within a few minutes, check your spam folder and add rose@thedrivenceo.com to your contacts so future emails land safely.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"><span>2</span></div>
+        <div class="step-content">
+          <h3>Start from Episode 1 — it sets everything up</h3>
+          <p>Each episode is 10–15 minutes. No guests, no sponsors, no filler. You can jump around but Episode 1 gives you the full context for everything that follows.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"><span>3</span></div>
+        <div class="step-content">
+          <h3>Hit reply when something lands</h3>
+          <p>Rose reads every email. If an episode makes you think "that's exactly where I'm stuck" — reply and tell her. That conversation might be the most useful thing you do today.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <span class="f-logo">© 2026 The Driven CEO LLC</span>
+  <div class="f-links"><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{entr
