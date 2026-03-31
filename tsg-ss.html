@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ServeSuite | Every System You Need. Already Built.</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0C343D;--pacific:#77B1B8;--mint:#E5F7F7;--purple:#C580D6;--lilac:#F1E9FE;--green:#AEE524;--lime-cream:#DFF5AB;--cream:#FFFBF8;--white:#fff}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;color:var(--navy);background:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ═══ HERO ═══ */
+.hero{background:linear-gradient(160deg,var(--mint) 0%,var(--lilac) 50%,var(--pacific) 100%);text-align:center;padding:100px 40px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(255,255,255,.3) 0%,transparent 70%);pointer-events:none}
+.hero-pre{font-size:15px;color:var(--navy);opacity:.7;margin-bottom:24px;position:relative;z-index:1}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5.5vw,64px);font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:20px;position:relative;z-index:1}
+.hero h1 em{font-style:italic;color:var(--purple)}
+.hero-sub{font-size:17px;line-height:1.7;color:var(--navy);opacity:.75;max-width:680px;margin:0 auto 40px;position:relative;z-index:1}
+.hero-video{width:100%;max-width:800px;margin:0 auto 40px;aspect-ratio:16/9;background:var(--navy);border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;box-shadow:0 20px 60px rgba(12,52,61,.15)}
+.hero-video .play-icon{width:72px;height:72px;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s}
+.hero-video .play-icon:hover{background:rgba(174,229,36,.2)}
+.hero-video .play-icon svg{width:28px;height:28px;fill:var(--cream);margin-left:4px}
+.hero-video-label{font-size:13px;color:var(--cream);opacity:.5;position:absolute;bottom:16px}
+.btn-cta{display:inline-flex;flex-direction:column;align-items:center;padding:20px 44px;background:var(--green);color:var(--navy);border:none;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s;position:relative;z-index:1}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(174,229,36,.3)}
+.btn-cta .btn-sub{display:block;font-size:10px;font-weight:500;letter-spacing:1.5px;opacity:.7;margin-top:4px}
+.hero-fine{font-size:13px;color:var(--navy);opacity:.5;margin-top:16px;position:relative;z-index:1}
+
+/* ═══ DIFFERENTIATOR ═══ */
+.diff-section{background:var(--lime-cream);max-width:none;padding:60px 40px;text-align:center}
+.diff-inner{max-width:800px;margin:0 auto}
+.diff-section h2{font-size:clamp(22px,3vw,32px);text-align:center;margin-bottom:12px}
+.diff-section p{font-size:16px;line-height:1.7;color:var(--navy);opacity:.8;max-width:680px;margin:0 auto}
+
+/* ═══ SYSTEM GIF ═══ */
+.system-gif{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,var(--mint),var(--lilac));border-radius:10px;margin:10px 0;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--navy);opacity:.4;overflow:hidden}
+
+/* ═══ BONUSES ═══ */
+.bonuses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.bonus-card{background:var(--white);border-radius:20px;padding:36px 28px;text-align:center;border:2px solid var(--lime-cream);transition:transform .3s,box-shadow .3s}
+.bonus-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(12,52,61,.08)}
+.bonus-icon{width:56px;height:56px;background:var(--green);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:24px}
+.bonus-card h4{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--navy);margin-bottom:10px}
+.bonus-card p{font-size:14px;line-height:1.6;color:var(--navy);opacity:.7}
+
+/* ═══ PRICING NOTE ═══ */
+.pricing-note{font-size:13px;color:var(--navy);opacity:.55;margin-top:20px;max-width:400px;margin-left:auto;margin-right:auto;text-align:center;line-height:1.5}
+
+/* ═══ SECTIONS ═══ */
+.section{padding:100px 40px;max-width:1200px;margin:0 auto}
+.section-navy{background:var(--navy);color:var(--cream);max-width:none;padding:100px 40px}
+.section-navy .inner{max-width:1200px;margin:0 auto}
+.section-mint{background:var(--mint);max-width:none;padding:100px 40px}
+.section-mint .inner{max-width:1200px;margin:0 auto}
+.section-lilac{background:var(--lilac);max-width:none;padding:100px 40px}
+.section-lilac .inner{max-width:1200px;margin:0 auto}
+.section-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--pacific);margin-bottom:20px}
+.section-tag::before{content:'';display:inline-block;width:24px;height:2px;background:var(--pacific)}
+h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:600;line-height:1.2;margin-bottom:32px;color:var(--navy)}
+.section-navy h2{color:var(--cream)}
+p.body{font-size:17px;line-height:1.8;opacity:.85;margin-bottom:20px;max-width:720px}
+
+/* ═══ TWO OPTIONS ═══ */
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px;max-width:800px}
+.option-card{background:rgba(119,177,184,.08);border-radius:20px;padding:36px 32px}
+.option-card h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:16px;color:var(--cream)}
+.option-card p{font-size:15px;line-height:1.6;color:var(--cream);opacity:.75}
+.option-card.highlight{background:rgba(174,229,36,.1);border:2px solid rgba(174,229,36,.3)}
+.option-card.highlight h3{color:var(--green)}
+
+/* ═══ SYSTEMS ═══ */
+.systems-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.system-card{background:var(--white);border-radius:20px;padding:28px 24px;border:1px solid rgba(12,52,61,.06);transition:box-shadow .3s}
+.system-card:hover{box-shadow:0 8px 32px rgba(12,52,61,.06)}
+.system-header{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.system-num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;background:var(--lilac);color:var(--purple);font-weight:700;font-size:13px;border-radius:9px;flex-shrink:0}
+.system-card h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--navy)}
+.system-pillar{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--pacific);margin-bottom:8px;margin-left:46px}
+.system-card>p{font-size:14px;line-height:1.6;color:var(--navy);opacity:.75;margin-bottom:14px}
+.system-card .built-label{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.feature-list{list-style:none;margin-bottom:10px}
+.feature-list li{position:relative;padding:5px 0 5px 26px;font-size:13px;line-height:1.5;color:var(--navy);opacity:.8}
+.feature-list li::before{content:'✓';position:absolute;left:0;top:7px;width:17px;height:17px;background:var(--green);color:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700}
+.system-closing{font-size:13px;font-style:italic;color:var(--pacific);margin-top:6px}
+
+/* ═══ PLATFORM FEATURES ═══ */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.feature-item{background:var(--white);border-radius:16px;padding:28px 24px;border:1px solid rgba(12,52,61,.06)}
+.feature-item h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.feature-item p{font-size:13px;line-height:1.6;color:var(--navy);opacity:.65}
+.platform-statement{text-align:center;margin-top:48px;font-size:18px;font-weight:700;color:var(--navy)}
+
+/* ═══ PRICING ═══ */
+.pricing-card{background:var(--white);border-radius:24px;padding:56px 48px;max-width:560px;margin:0 auto;text-align:center;box-shadow:0 20px 60px rgba(12,52,61,.08);border:2px solid var(--lime-cream)}
+.pricing-card h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:var(--navy);margin-bottom:8px}
+.pricing-amount{font-family:'Playfair Display',serif;font-size:56px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.pricing-period{font-size:15px;color:var(--navy);opacity:.5;margin-bottom:32px}
+.pricing-list{list-style:none;text-align:left;margin-bottom:36px}
+.pricing-list li{position:relative;padding:8px 0 8px 32px;font-size:14px;line-height:1.5;color:var(--navy);opacity:.8;border-bottom:1px solid rgba(12,52,61,.05)}
+.pricing-list li:last-child{border-bottom:none}
+.pricing-list li::before{content:'✓';position:absolute;left:0;top:10px;color:var(--green);font-weight:700;font-size:14px}
+
+/* ═══ WHO IT'S FOR ═══ */
+.for-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:40px}
+.for-section h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:20px}
+.for-list{list-style:none}
+.for-list li{position:relative;padding:8px 0 8px 32px;font-size:15px;line-height:1.6;color:var(--navy);opacity:.8}
+.for-yes li::before{content:'✓';position:absolute;left:0;top:10px;width:20px;height:20px;background:var(--green);color:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.replaces-list{list-style:none}
+.replaces-list li{position:relative;padding:8px 0 8px 32px;font-size:15px;line-height:1.6;color:var(--navy);opacity:.7}
+.replaces-list li::before{content:'→';position:absolute;left:0;top:10px;color:var(--purple);font-weight:700}
+.replaces-statement{margin-top:24px;font-size:17px;font-weight:700;color:var(--navy)}
+
+/* ═══ ABOUT ═══ */
+.about-grid{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto}
+.about-img{width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,var(--white),var(--mint));border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--navy);opacity:.4;box-shadow:0 12px 40px rgba(12,52,61,.08)}
+
+/* ═══ FAQ ═══ */
+.faq-list{max-width:800px;margin:48px auto 0}
+.faq-item{border-bottom:1px solid rgba(12,52,61,.08)}
+.faq-question{width:100%;background:none;border:none;padding:24px 48px 24px 0;text-align:left;font-family:'DM Sans',sans-serif;font-size:17px;font-weight:600;color:var(--navy);cursor:pointer;position:relative;transition:color .2s}
+.faq-question::after{content:'+';position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:24px;font-weight:300;color:var(--pacific)}
+.faq-item.open .faq-question::after{content:'−'}
+.faq-question:hover{color:var(--pacific)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
+.faq-item.open .faq-answer{max-height:300px;padding-bottom:24px}
+.faq-answer p{font-size:15px;line-height:1.7;color:var(--navy);opacity:.7}
+
+/* ═══ FINAL CTA ═══ */
+.cta-section{background:linear-gradient(160deg,var(--mint) 0%,var(--lilac) 100%);padding:100px 40px;text-align:center}
+.cta-section .inner{max-width:680px;margin:0 auto}
+.cta-section h2{color:var(--navy);margin-bottom:16px}
+.cta-section p{font-size:17px;line-height:1.7;color:var(--navy);opacity:.8;margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto}
+.cta-fine{font-size:14px;color:var(--navy);opacity:.5;margin-top:16px}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--navy);color:var(--cream);padding:40px;text-align:center;font-size:13px;opacity:.5}
+
+@media(max-width:900px){.options-grid,.for-grid,.systems-grid{grid-template-columns:1fr}.features-grid,.bonuses-grid{grid-template-columns:1fr}.about-grid{grid-template-columns:1fr}.about-img{max-width:280px}.section,.section-navy,.section-mint,.section-lilac{padding:80px 24px}.hero{padding:80px 24px 60px}.pricing-card{padding:40px 28px}.diff-section{padding:48px 24px}}
+@media(max-width:600px){.features-grid,.bonuses-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <p class="hero-pre">You just learned what your systems should look like. Here's where they already exist.</p>
+  <h1>Every System You Need.<br>Already Built. <em>Ready to Launch.</em></h1>
+  <p class="hero-sub">ServeSuite is a done-for-you CRM and business operations platform built specifically for knowledge-based businesses — coaches, consultants, and course creators. The systems you've been learning about in the sprint? They're already inside. Ready to customise and go live.</p>
+  <div class="hero-video">
+    <div class="play-icon"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+    <span class="hero-video-label">[ Embed your walkthrough video here ]</span>
+  </div>
+  <a href="#pricing" class="btn-cta">Get Started With ServeSuite — $197/month<span class="btn-sub">No setup fees · No contracts · Cancel anytime</span></a>
+</section>
+
+<!-- ═══════ THE PROBLEM RE-STATED ═══════ -->
+<section class="section-navy">
+  <div class="inner">
+    <span class="section-tag">The Choice</span>
+    <h2>You know what needs to change.<br>The question is whether you want to build it yourself.</h2>
+    <p class="body" style="color:var(--cream)">Over the past few days, you've seen exactly what optimised systems look like. You know your content needs a pipeline and tracking. You know your leads need segmentation and automated follow-up. You know your nurture should be behaviour-driven. You know your sales process needs a pipeline. And you know your delivery should be systematised and impressive.</p>
+    <p class="body" style="color:var(--cream)">Now you've got two options:</p>
+    <div class="options-grid">
+      <div class="option-card">
+        <h3>Option 1: Build it yourself</h3>
+        <p>Research the tools. Duct-tape them together. Write the automations. Design the workflows. Test everything. Maintain it. Fix it when things break. Hope it all works.</p>
+      </div>
+      <div class="option-card highlight">
+        <h3>Option 2: Start ready</h3>
+        <p>Everything already built, connected, and ready to customise for your business. That's ServeSuite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ DIFFERENTIATOR ═══════ -->
+<section class="diff-section">
+  <div class="diff-inner">
+    <h2>This isn't just a platform. It's a platform with a strategy built in.</h2>
+    <p>Most CRMs give you a blank canvas and say "good luck." ServeSuite gives you pre-built systems, workflows, and templates based on The Driven CEO Framework — the same 8-pillar methodology I've used across 8 years of building operations for knowledge-based businesses. You're not starting from scratch. You're starting from a system that's already been proven.</p>
+  </div>
+</section>
+
+<!-- ═══════ THE 5 SYSTEMS ═══════ -->
+<section class="section">
+  <span class="section-tag">What's Inside</span>
+  <h2>Everything you learned about<br>in the sprint. Already built.</h2>
+
+  <div class="systems-grid">
+  <div class="system-card">
+    <div class="system-header"><span class="system-num">01</span><h3>Your Content System</h3></div>
+    <div class="system-pillar">Visibility</div>
+    <div class="system-gif">[ GIF: Content system walkthrough ]</div>
+    <p>The sprint showed you what an optimised content system looks like — a creation pipeline, a repurposing engine, and a tracking layer. Inside ServeSuite, the infrastructure for this is ready.</p>
+    <div class="built-label">What's built for you:</div>
+    <ul class="feature-list">
+      <li>Content workflow templates with step-by-step task management for creation, editing, publishing, and distribution</li>
+      <li>Repurposing pipeline structure — trigger workflows when pillar content is published to automatically create derivative tasks</li>
+      <li>UTM link builder and tracking integrated into your CRM so every piece of content is measurable</li>
+      <li>Dashboard views showing which content is driving leads and which leads are converting to clients</li>
+      <li>Integration points for your existing tools — social schedulers, email platforms, and analytics</li>
+    </ul>
+    <div class="system-closing">You provide the expertise. ServeSuite provides the machine that distributes it.</div>
+  </div>
+
+  <div class="system-card">
+    <div class="system-header"><span class="system-num">02</span><h3>Your Lead Generation System</h3></div>
+    <div class="system-pillar">Demand</div>
+    <div class="system-gif">[ GIF: Lead generation system walkthrough ]</div>
+    <p>In the sprint, you learned that lead generation isn't just about having a lead magnet — it's about strategic capture, instant segmentation, and source tracking. ServeSuite has this built in.</p>
+    <div class="built-label">What's built for you:</div>
+    <ul class="feature-list">
+      <li>Pre-built landing page and opt-in form templates designed for knowledge-based businesses</li>
+      <li>Dynamic forms that tag and segment leads at the point of capture based on their responses</li>
+      <li>Automated lead routing — new contacts are instantly tagged, segmented, and entered into the right workflow</li>
+      <li>Full UTM tracking and lead source attribution built into the CRM</li>
+      <li>Integration with your ad platforms for retargeting and conversion tracking</li>
+      <li>Lead magnet delivery automation — instant delivery with follow-up sequences triggered on opt-in</li>
+    </ul>
+    <div class="system-closing">Every lead captured. Every lead segmented. Every source tracked. From day one.</div>
+  </div>
+
+  <div class="system-card">
+    <div class="system-header"><span class="system-num">03</span><h3>Your Nurture Sequences</h3></div>
+    <div class="system-pillar">Connection</div>
+    <div class="system-gif">[ GIF: Nurture sequences walkthrough ]</div>
+    <p>The sprint showed you that nurture should be segmented, behaviour-driven, and automated without losing the personal touch. ServeSuite includes the sequences and triggers to make this happen.</p>
+    <div class="built-label">What's built for you:</div>
+    <ul class="feature-list">
+      <li>Pre-built welcome sequences with conditional logic that branches based on how the contact was segmented at opt-in</li>
+      <li>Behaviour-based trigger automations — click a link, visit a page, watch a video? The system responds with relevant follow-up</li>
+      <li>Engagement scoring that tracks individual-level opens, clicks, and interactions</li>
+      <li>Re-engagement sequences for contacts who go cold, with automated list hygiene rules</li>
+      <li>Email templates designed for value-plus-positioning — educating while reinforcing your authority</li>
+      <li>Broadcast and drip campaign tools so you can combine automated sequences with real-time sends</li>
+    </ul>
+    <div class="system-closing">Your leads get nurtured consistently, personally, and strategically — whether you're at your desk or on holiday.</div>
+  </div>
+
+  <div class="system-card">
+    <div class="system-header"><span class="system-num">04</span><h3>Your Sales System</h3></div>
+    <div class="system-pillar">Generate Revenue</div>
+    <div class="system-gif">[ GIF: Sales system walkthrough ]</div>
+    <p>Whether you sell through calls or through a self-serve purchase flow, ServeSuite has the sales infrastructure ready for your business model.</p>
+    <div class="built-label">What's built for you:</div>
+    <ul class="feature-list">
+      <li><strong>For coaches:</strong> Application funnel templates, booking page integration, pre-qualifying question forms, automated confirmation and reminder sequences, and post-call follow-up workflows</li>
+      <li><strong>For digital product creators:</strong> Sales page templates, optimised order forms, order confirmation pages with upsell capability, and abandoned cart recovery automations</li>
+      <li>CRM sales pipelines with customisable stages — see exactly where every lead sits at any time</li>
+      <li>Automated pipeline movement based on contact actions — no manual dragging, no guessing</li>
+      <li>Proposal and invoice templates pre-loaded and ready to customise</li>
+      <li>Lead scoring that flags your warmest prospects so you know exactly who to focus on</li>
+    </ul>
+    <div class="system-closing">Consistent revenue. Full pipeline visibility. Whether you're in launch mode or not.</div>
+  </div>
+
+  <div class="system-card">
+    <div class="system-header"><span class="system-num">05</span><h3>Your Client Delivery System</h3></div>
+    <div class="system-pillar">Fulfilment</div>
+    <div class="system-gif">[ GIF: Client delivery system walkthrough ]</div>
+    <p>The sprint showed you what consistent, impressive delivery looks like for your business model. ServeSuite has the fulfilment workflows ready.</p>
+    <div class="built-label">What's built for you:</div>
+    <ul class="feature-list">
+      <li><strong>For 1:1 coaches:</strong> Automated onboarding sequences, contract and invoice delivery, calendar scheduling, individual client portals, session reminders, and structured offboarding</li>
+      <li><strong>For group coaches:</strong> Comprehensive onboarding covering course area access, community links, programme schedules, contract automation, drip-release content, expiry reminders, and cohort offboarding</li>
+      <li><strong>For digital product creators:</strong> Instant automated access delivery, getting-started sequences, FAQ and support form templates, wrong-email recovery workflows, and post-purchase engagement</li>
+      <li>Automated feedback surveys and testimonial requests timed for maximum response</li>
+      <li>Offboarding sequences with ascension offers — turning finished clients into repeat buyers</li>
+      <li>Referral programme triggers built into the offboarding flow</li>
+    </ul>
+    <div class="system-closing">Every client gets the same premium experience. Every time. Without you managing every step.</div>
+  </div>
+  </div>
+</section>
+
+<!-- ═══════ WHAT ELSE IS INCLUDED ═══════ -->
+<section class="section-mint">
+  <div class="inner">
+    <span class="section-tag">The Full Platform</span>
+    <h2>ServeSuite isn't just the sprint systems.<br>It's the entire platform.</h2>
+    <p class="body">The systems you learned about in the sprint are the core. But ServeSuite is a full CRM and operations platform — here's what else you get:</p>
+    <div class="features-grid">
+      <div class="feature-item"><h4>Full CRM</h4><p>Every lead, every client, every interaction in one place with tags, segments, and custom fields.</p></div>
+      <div class="feature-item"><h4>Website & Funnel Builder</h4><p>Landing pages, sales pages, opt-in forms, checkout pages, and full websites without a separate platform.</p></div>
+      <div class="feature-item"><h4>Email & SMS Marketing</h4><p>Broadcasts, drip campaigns, automated sequences, and templates all built into the same system.</p></div>
+      <div class="feature-item"><h4>Calendar & Booking</h4><p>Scheduling for discovery calls, coaching sessions, and group events with automated reminders.</p></div>
+      <div class="feature-item"><h4>Workflow Automation</h4><p>If/then logic, triggers, delays, and conditional branching to automate virtually any process.</p></div>
+      <div class="feature-item"><h4>Courses & Memberships</h4><p>Host your digital products, drip content, and track student progress without a separate course platform.</p></div>
+      <div class="feature-item"><h4>Community</h4><p>Built-in community features for group programmes, memberships, and peer engagement.</p></div>
+      <div class="feature-item"><h4>Reporting & Analytics</h4><p>Pipeline reports, email performance, funnel analytics, and revenue tracking in one dashboard.</p></div>
+      <div class="feature-item"><h4>Payments & Invoicing</h4><p>Accept payments, create invoices, set up subscriptions, and manage transactions directly inside.</p></div>
+    </div>
+    <p class="platform-statement">One platform. Everything connected. No more duct-taping five different tools together.</p>
+  </div>
+</section>
+
+<!-- ═══════ BONUSES ═══════ -->
+<section class="section-navy">
+  <div class="inner" style="text-align:center">
+    <span class="section-tag">Included Bonuses</span>
+    <h2 style="color:var(--cream);text-align:center">You're not just getting a platform.<br>You're getting a support system.</h2>
+    <p class="body" style="color:var(--cream);max-width:640px;margin:0 auto 0">When you join ServeSuite, you also get access to these bonuses designed to help you implement faster and get results sooner.</p>
+    <div class="bonuses-grid">
+      <div class="bonus-card">
+        <div class="bonus-icon">🎨</div>
+        <h4>Custom Designed Templates</h4>
+        <p>Professionally designed templates created exclusively for the ServeSuite community. Landing pages, email templates, funnels, and more — all on-brand and ready to customise. Not generic templates you'll find everywhere else.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-icon">🔧</div>
+        <h4>Tech Clinic — 2x Per Week</h4>
+        <p>Live tech support sessions twice a week where you can get hands-on help with your setup, troubleshoot issues, and ask questions in real time. No more Googling for answers or waiting days for support tickets.</p>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-icon">🤖</div>
+        <h4>Suite of AI Tools</h4>
+        <p>A curated collection of AI tools and prompts designed to make implementation faster and easier. From writing email sequences to building automations — AI does the heavy lifting so you can focus on your clients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PRICING ═══════ -->
+<section class="section" id="pricing" style="text-align:center">
+  <span class="section-tag">Pricing</span>
+  <h2 style="text-align:center">Simple pricing. Everything included.</h2>
+  <div class="pricing-card">
+    <h3>ServeSuite</h3>
+    <div class="pricing-amount">$197</div>
+    <div class="pricing-period">per month</div>
+    <ul class="pricing-list">
+      <li>Full CRM with unlimited contacts</li>
+      <li>Website and funnel builder</li>
+      <li>Email and SMS marketing</li>
+      <li>Calendar and booking system</li>
+      <li>Workflow automation engine</li>
+      <li>Courses and memberships platform</li>
+      <li>Community features</li>
+      <li>Reporting and analytics dashboard</li>
+      <li>Payments and invoicing</li>
+      <li>Pre-built systems: content, lead gen, nurture, sales, and delivery</li>
+      <li>All templates included — landing pages, emails, forms, proposals, and more</li>
+      <li><strong>Bonus:</strong> Custom designed templates for our community</li>
+      <li><strong>Bonus:</strong> Tech Clinic — 2x per week live support</li>
+      <li><strong>Bonus:</strong> Suite of AI tools for faster implementation</li>
+    </ul>
+    <a href="#" class="btn-cta">Get Started With ServeSuite<span class="btn-sub">No setup fees · No contracts · Cancel anytime</span></a>
+    <p class="pricing-note">* Additional usage-based fees apply for email sending and SMS messaging. These are standard carrier and delivery costs and are billed separately based on your volume.</p>
+  </div>
+</section>
+
+<!-- ═══════ WHO IT'S FOR ═══════ -->
+<section class="section-navy">
+  <div class="inner">
+    <span class="section-tag">Is This for You?</span>
+    <h2 style="color:var(--cream)">Built for knowledge-based businesses that<br>want to stop duct-taping and start operating.</h2>
+    <div class="for-grid">
+      <div class="for-section">
+        <h3 style="color:var(--cream)">ServeSuite is for you if:</h3>
+        <ul class="for-list for-yes" style="color:var(--cream)">
+          <li style="color:var(--cream)">You're a coach, consultant, or course creator generating revenue and ready to systematise</li>
+          <li style="color:var(--cream)">You're tired of paying for 5+ disconnected tools that don't talk to each other</li>
+          <li style="color:var(--cream)">You want pre-built systems you can customise, not a blank canvas</li>
+          <li style="color:var(--cream)">You need a CRM that understands knowledge-based businesses</li>
+          <li style="color:var(--cream)">You want to automate without losing the personal touch</li>
+        </ul>
+      </div>
+      <div class="for-section">
+        <h3 style="color:var(--cream)">ServeSuite replaces:</h3>
+        <ul class="replaces-list" style="color:var(--cream)">
+          <li style="color:var(--cream)">Your CRM (HubSpot, Dubsado, HoneyBook)</li>
+          <li style="color:var(--cream)">Your email platform (Mailchimp, ConvertKit, ActiveCampaign)</li>
+          <li style="color:var(--cream)">Your funnel builder (ClickFunnels, Leadpages, Kartra)</li>
+          <li style="color:var(--cream)">Your course platform (Teachable, Thinkific, Kajabi)</li>
+          <li style="color:var(--cream)">Your scheduling tool (Calendly, Acuity)</li>
+          <li style="color:var(--cream)">Your community platform (Circle, Mighty Networks)</li>
+          <li style="color:var(--cream)">Your form builder (Typeform, JotForm)</li>
+        </ul>
+        <p class="replaces-statement" style="color:var(--green)">One platform. One login. One monthly cost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section class="section-lilac">
+  <div class="about-grid">
+    <div class="about-img">[ Photo of Rose ]</div>
+    <div>
+      <span class="section-tag">Who Built This</span>
+      <h2>This isn't just another CRM.</h2>
+      <p class="body">I'm Rose, founder of The Driven CEO and creator of ServeSuite. I've spent 8 years as the behind-the-scenes operator for coaching and consulting brands — building the systems, automations, and workflows that make these businesses actually run.</p>
+      <p class="body">I built ServeSuite because I kept seeing the same problem: talented knowledge entrepreneurs paying for a stack of disconnected tools, none of which were designed for how they actually work. They'd spend months trying to make generic software fit their business, when what they needed was a platform built specifically for coaches, consultants, and course creators — with the systems already in place.</p>
+      <p class="body">That's what ServeSuite is. It's the platform I wish existed when I was building operations for other people's businesses. And now it's yours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FAQ ═══════ -->
+<section class="section">
+  <span class="section-tag">FAQ</span>
+  <h2>Got questions?</h2>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is there a setup fee?</button><div class="faq-answer"><p>No. You pay $197/month and that's it. No onboarding fees, no hidden costs.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is there a contract or minimum commitment?</button><div class="faq-answer"><p>No. ServeSuite is month-to-month. You can cancel anytime. But you won't want to.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">I'm not technical. Can I actually use this?</button><div class="faq-answer"><p>Yes. ServeSuite is designed for business owners, not developers. The systems are pre-built — you customise them with your content, your branding, and your offers. If you can edit a document, you can use ServeSuite.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What if I already have a CRM or email marketing tool?</button><div class="faq-answer"><p>ServeSuite replaces most of the tools in your current stack. You won't need a separate CRM, email platform, funnel builder, course host, scheduling tool, or form builder. That alone can save you hundreds per month in subscription costs.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Do the pre-built systems work for my specific business?</button><div class="faq-answer"><p>The systems are designed for knowledge-based businesses — coaches, consultants, and course creators. They're pre-built as frameworks that you customise with your specific offers, messaging, and workflows. They're strategic starting points that save you months of building from scratch.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What if I need help setting things up?</button><div class="faq-answer"><p>ServeSuite comes with documentation and support. And if you want hands-on strategic help, The Systems Guild ($397/month) gives you ongoing support and accountability, and Clarity Growth Lab (starting at $6,000) is a done-with-you intensive where we build everything together.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I migrate from my current tools?</button><div class="faq-answer"><p>Yes. ServeSuite supports contact imports, and most automations can be recreated quickly using the pre-built templates as a starting point. If you need migration support, we can help.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is this GoHighLevel?</button><div class="faq-answer"><p>ServeSuite is built on GoHighLevel's infrastructure, which means you get enterprise-level technology at a fraction of the cost. But unlike raw GoHighLevel, ServeSuite comes pre-configured with systems, workflows, and templates designed specifically for knowledge-based businesses. You're not starting from a blank account — you're starting from a fully operational platform.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How easy is it to migrate from other platforms?</button><div class="faq-answer"><p>It depends on your current setup, but we've made it as straightforward as possible. You can import your contacts via CSV, and most automations can be rebuilt quickly using our pre-built templates as starting points rather than building from scratch. If you need hands-on migration support, we can help with that too.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Are there any other charges beyond the $197/month?</button><div class="faq-answer"><p>The $197/month covers the full platform and all pre-built systems. The only additional costs are usage-based fees for email sending and SMS messaging — these are standard carrier and delivery costs that are billed separately based on your volume. There are no hidden fees, no setup costs, and no surprise charges.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">What social media platforms can I integrate with?</button><div class="faq-answer"><p>ServeSuite integrates with Threads, TikTok, Instagram, Facebook Pages (not groups or personal profiles), YouTube, LinkedIn, and Google My Business. This means you can manage your social presence, schedule content, and track engagement across all your key platforms from inside ServeSuite.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is there a limit to how many websites I can create?</button><div class="faq-answer"><p>No. You can create unlimited websites, funnels, and landing pages inside ServeSuite. Build as many as your business needs — whether that's a main website, individual landing pages for each offer, or separate funnels for different campaigns.</p></div></div>
+    <div class="faq-item"><button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Do I have to migrate everything over at once?</button><div class="faq-answer"><p>Not at all. You can migrate at your own pace. Many of our users start by setting up one system — like their lead capture or nurture sequences — and gradually move everything else over as they get comfortable. There's no pressure to switch everything on day one.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══════ FINAL CTA ═══════ -->
+<section class="cta-section">
+  <div class="inner">
+    <h2>Stop building systems from scratch.<br>Start with everything you need.</h2>
+    <p>You've seen what optimised systems look like. You know what's broken. ServeSuite gives you the entire operational backbone of a knowledge-based business — pre-built, connected, and ready to make yours.</p>
+    <a href="#pricing" class="btn-cta">Get Started With ServeSuite — $197/month<span class="btn-sub">No setup fees · No contracts · Cancel anytime</span></a>
+    <p class="cta-fine">Questions? Email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bad2dfd6d6d5faced2dfdec8d3ccdfd4d9dfd594d9d5d7">[email&#160;protected]</a> — I read every one.</p>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ══════�
